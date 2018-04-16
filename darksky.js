@@ -34,8 +34,10 @@ var getImg = (query, callback) => {
 			callback('Bad request, retry coordinates');
 		} else if(body.timezone){
 			callback(undefined, {
-				img: body.hits[0].userImageURL,
-				imgHD: body.hits[0].imageURL
+				img: body.hits.userImageURL,
+				imgHD: body.hits.imageURL,
+				likes: body.hits.likes,
+				imglg: body.hits.largeImageURL
 			});
 		}
 	});

@@ -13,8 +13,6 @@ app.use(bodyParser.urlencoded({
 	extended:true
 }));
 
-var Records = {};
-
 app.get('/', (request, response) => {
 	response.render('main.hbs', {
 		title: 'Main'
@@ -25,7 +23,7 @@ app.get('/feature1', (request, response) => {
 	response.render('feature1.hbs', {
 		title: 'Image',
 		imgurl: imgURLresult,
-		imgresult: 'https://pixabay.com/get/ed6a9364a9fd0a76647.jpg'
+		imgresult: 'https://pixabay.com/get/ea37b70b28f0093ed1584d05fb1d4194e771e4d21dac104497f3c970aeecb0be_1280.jpg'
 	})
 })
 
@@ -58,17 +56,14 @@ app.get('/feature1', (request, response) => {
 
 var imgURLresult = [];
 
-weathercode.getImg('cat', (errorMessage, result) => {
-	if (errorMessage) {
-		console.log(errorMessage);
-	} else {
-		console.log(result.img);
-		console.log('meow');
-		var imgresult = result.img;
-		console.log(result.imgHD);
-		imgURLresult.push(result.imgHD);
-		imgURLresult.push(imgresult);
-	}
+weathercode.getImg('cat', (result) => {
+	var imgresult = result.img;
+	console.log(result.imgHD);
+	console.log(result.imglg);
+	imgURLresult.push(result.imgHD);
+	imgURLresult.push(imgresult);
+	console.log(result.likes);
+
 });
 
 // app.get('/feature1', (request, response) => {
@@ -97,7 +92,6 @@ weathercode.getImg('cat', (errorMessage, result) => {
 // 		});
 // 	});
 // });
-
 
 
 var weather_result = '';
