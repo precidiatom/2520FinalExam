@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Feature 1</title>
@@ -6,15 +6,17 @@
 </head>
 
 <body>
-		<h1>{{title}}</h1>
+	<h1>{{title}}</h1>
 
-		<div id='registerform' >
-        <h1> FORM </h1>
-        <form action="/featureoneform" method="post">
-            Username: <input type="text" name="username"><br>
-            Password: <input type="password" name="password"> <br>
-        <button type="submit" value="Submit">Submit</form>
+	<div id='registerform' >
+       <h2> FORM </h2>
+       <form action="/imageform" method="post">
+           Search: <input type="text" name="img"><br>
+       <button type="submit" value="Submit">Submit</form>
     </div>
+
+<p>Image </p>
+<img hregf='{{imgresult}}' />
 
 </body>
 </html>
