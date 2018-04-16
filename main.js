@@ -24,7 +24,8 @@ app.get('/', (request, response) => {
 app.get('/feature1', (request, response) => {
 	response.render('feature1.hbs', {
 		title: 'Image',
-		imgurl: imgURLresult
+		imgurl: imgURLresult,
+		imgresult: 'https://pixabay.com/get/ed6a9364a9fd0a76647.jpg'
 	})
 })
 
@@ -64,6 +65,8 @@ weathercode.getImg('cat', (errorMessage, result) => {
 		console.log(result.img);
 		console.log('meow');
 		var imgresult = result.img;
+		console.log(result.imgHD);
+		imgURLresult.push(result.imgHD);
 		imgURLresult.push(imgresult);
 	}
 });

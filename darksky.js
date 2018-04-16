@@ -25,7 +25,7 @@ var getWeather = (lat, lon, callback) => {
 
 var getImg = (query, callback) => {
 	request({
-		url: `https://pixabay.com/api/?key=7246674-b37aac3e55b379cef1f626bb09&q=${query}&image_type=photo`,
+		url: `https://pixabay.com/api/?key=7246674-b37ac3e55b379cef1f626bb09&q=${query}&image_type=photo`,
 		json: true
 	}, (error, response, body) => {
 		if(error){
@@ -34,7 +34,8 @@ var getImg = (query, callback) => {
 			callback('Bad request, retry coordinates');
 		} else if(body.timezone){
 			callback(undefined, {
-				img: body.hits[0].userImageURL
+				img: body.hits[0].userImageURL,
+				imgHD: body.hits[0].imageURL
 			});
 		}
 	});
